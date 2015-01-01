@@ -21,5 +21,8 @@
   "bugs": {
     "url": "https://github.com/wzrdtales/hapi-mariadb/issues"
   },
-  "homepage": "https://github.com/wzrdtales/hapi-mariadb"
+  "homepage": "https://github.com/wzrdtales/hapi-mariadb",
+  "dependencies": {
+    "my_pool_sql": "0.0.9"
+  }
 }
