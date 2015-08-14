@@ -1,6 +1,6 @@
 {
   "name": "hapi-mariadb",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "A hapi plugin for MariaDB (mariasql) using a simple pooling module.",
   "main": "index.js",
   "scripts": {
