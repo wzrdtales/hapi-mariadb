@@ -9,7 +9,7 @@ exports.register = function(plugin, options, next) {
   }
   else
   {
-    var mariasql = require('my_pool_sql');
+    var mariasql_pool = require('my_pool_sql');
     plugin.expose('pool', new mariasql_pool( options.connectionCount, options.mariasql ) );
   }
   
