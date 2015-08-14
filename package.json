@@ -24,6 +24,6 @@
   "homepage": "https://github.com/wzrdtales/hapi-mariadb",
   "dependencies": {
     "mariadb-transact": "^0.4.0",
-    "my_pool_sql": "0.0.9"
+    "my_pool_sql": "https://github.com/wzrdtales/my_pool_sql/tarball/fixClaiming"
   }
 }
