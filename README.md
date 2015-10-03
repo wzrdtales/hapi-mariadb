@@ -5,7 +5,7 @@ This plugin is a collection of multiple plugins which are working together with 
 
 It enables you currently to register the following plugins:
  * [my_pool_sql](https://www.npmjs.com/package/my_pool_sql)
- * [mariadb-transact](https://www.npmjs.com/package/mariadb-transact)
+ * [mariadb-transact](https://www.npmjs.com/package/mariadb-transact) - Currently disabled (incompatibilities to node 4.x.x, switch to 0.12 and hapi mariadb 1.0.x to use it)
 
 
 
