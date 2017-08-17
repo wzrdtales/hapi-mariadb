@@ -1,22 +1,27 @@
-
 exports.register = function(plugin, options, next) {
-
-
-  if( options.useTransact )
-  {
+  if (options.useTransact) {
     var mariasql_trans = require("mariadb-transact");
-    plugin.expose('pool', new mariasql_trans( options.connectionCount ) );
-  }
-  else
-  {
-    options.pool = options.pool || 'my_pool_sql';
+    plugin.expose("pool", new mariasql_trans(options.connectionCount));
+  } else if (options.poolAsPromised) {
+    options.pool = options.pool || "my_pool_sql";
     var mariasql_pool = require(options.pool);
-    plugin.expose('pool', new mariasql_pool( options.connectionCount, options.mariasql ) );
+    var pool = new mariasql_pool(options.connectionCount, options.mariasql);
+    var Promise = require("bluebird");
+    Promise.promisifiyAll(pool);
+
+    plugin.expose("pool", pool);
+  } else {
+    options.pool = options.pool || "my_pool_sql";
+    var mariasql_pool = require(options.pool);
+    plugin.expose(
+      "pool",
+      new mariasql_pool(options.connectionCount, options.mariasql)
+    );
   }
 
   next();
 };
 
 exports.register.attributes = {
-  pkg: require('./package.json')
+  pkg: require("./package.json")
 };
