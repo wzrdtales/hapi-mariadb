@@ -7,7 +7,7 @@ exports.register = function(plugin, options, next) {
     var mariasql_pool = require(options.pool);
     var pool = new mariasql_pool(options.connectionCount, options.mariasql);
     var Promise = require("bluebird");
-    Promise.promisifiyAll(pool);
+    Promise.promisifyAll(pool);
 
     plugin.expose("pool", pool);
   } else {
