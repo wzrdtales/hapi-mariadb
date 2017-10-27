@@ -10,6 +10,19 @@ exports.register = function(plugin, options, next) {
     Promise.promisifyAll(pool);
 
     plugin.expose("pool", pool);
+  } else if (options.useMysqlAsPromised) {
+    var MySQL = require("mysql");
+    var Promise = require("bluebird");
+
+    var pool = mysql.createPool(
+      Object.assign(options.mariasql, {
+        connectionLimit: options.connectionCount
+      })
+    );
+
+    Promise.promisifyAll(pool);
+
+    plugin.expose("pool", pool);
   } else {
     options.pool = options.pool || "my_pool_sql";
     var mariasql_pool = require(options.pool);
