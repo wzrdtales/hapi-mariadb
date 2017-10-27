@@ -11,7 +11,7 @@ exports.register = function(plugin, options, next) {
 
     plugin.expose("pool", pool);
   } else if (options.useMysqlAsPromised) {
-    var MySQL = require("mysql");
+    var mysql = require("mysql");
     var Promise = require("bluebird");
 
     var pool = mysql.createPool(
